@@ -847,9 +847,16 @@ void Cmd_PlayerList_f(edict_t *ent)
     gi.cprintf(ent, PRINT_HIGH, "%s", text);
 }
 
-void Cmd_Screenloc_f(edict_t *ent) {
+void Cmd_Screenloc_f(edict_t *cent) {
     //MoveClientToIntermission(ent);
-    EndDMLevel();
+    edict_t *ent;
+    ent = G_Spawn();
+    ent->classname = "target_changelevel";
+    Q_snprintf(level.nextmap, sizeof(level.nextmap), "%s", level.mapname);
+    ent->map = level.nextmap;
+    //return ent;
+
+    BeginIntermission(ent);
 }
 
 /*
