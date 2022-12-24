@@ -848,7 +848,8 @@ void Cmd_PlayerList_f(edict_t *ent)
 }
 
 void Cmd_Screenloc_f(edict_t *ent) {
-    MoveClientToIntermission(ent);
+    //MoveClientToIntermission(ent);
+    EndDMLevel();
 }
 
 /*
