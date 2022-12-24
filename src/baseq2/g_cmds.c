@@ -847,6 +847,9 @@ void Cmd_PlayerList_f(edict_t *ent)
     gi.cprintf(ent, PRINT_HIGH, "%s", text);
 }
 
+void Cmd_Screenloc_f(edict_t *ent) {
+    MoveClientToIntermission(ent);
+}
 
 /*
 =================
@@ -862,6 +865,11 @@ void ClientCommand(edict_t *ent)
 
     cmd = gi.argv(0);
 
+    if (Q_stricmp(cmd, "screenloc") == 0) {
+        // move to intermission location
+        Cmd_Screenloc_f(ent);
+        return;
+    }
     if (Q_stricmp(cmd, "players") == 0) {
         Cmd_Players_f(ent);
         return;
