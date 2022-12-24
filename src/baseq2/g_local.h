@@ -580,6 +580,7 @@ typedef enum {
 
 extern  gitem_t itemlist[];
 
+void EndDMLevel(void);
 //
 // g_cmds.c
 //
